@@ -8,27 +8,71 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:eco_market/feature/presenation/screens/main_screen.dart' as _i1;
+import 'package:auto_route/auto_route.dart' as _i4;
+import 'package:eco_market/feature/presenation/screens/router_tab.dart' as _i2;
+import 'package:eco_market/feature/presenation/screens/tab_router_screens/bag_screen.dart'
+    as _i1;
+import 'package:eco_market/feature/presenation/screens/tab_router_screens/main_screen.dart'
+    as _i3;
 
-abstract class $AppRouter extends _i2.RootStackRouter {
+abstract class $AppRouter extends _i4.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i2.PageFactory> pagesMap = {
-    MainRoute.name: (routeData) {
-      return _i2.AutoRoutePage<dynamic>(
+  final Map<String, _i4.PageFactory> pagesMap = {
+    BagRoute.name: (routeData) {
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.MainScreen(),
+        child: const _i1.BagScreen(),
       );
-    }
+    },
+    DashboardRoute.name: (routeData) {
+      return _i4.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i2.DashboardPage(),
+      );
+    },
+    MainRoute.name: (routeData) {
+      return _i4.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i3.MainScreen(),
+      );
+    },
   };
 }
 
 /// generated route for
-/// [_i1.MainScreen]
-class MainRoute extends _i2.PageRouteInfo<void> {
-  const MainRoute({List<_i2.PageRouteInfo>? children})
+/// [_i1.BagScreen]
+class BagRoute extends _i4.PageRouteInfo<void> {
+  const BagRoute({List<_i4.PageRouteInfo>? children})
+      : super(
+          BagRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BagRoute';
+
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.DashboardPage]
+class DashboardRoute extends _i4.PageRouteInfo<void> {
+  const DashboardRoute({List<_i4.PageRouteInfo>? children})
+      : super(
+          DashboardRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DashboardRoute';
+
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.MainScreen]
+class MainRoute extends _i4.PageRouteInfo<void> {
+  const MainRoute({List<_i4.PageRouteInfo>? children})
       : super(
           MainRoute.name,
           initialChildren: children,
@@ -36,5 +80,5 @@ class MainRoute extends _i2.PageRouteInfo<void> {
 
   static const String name = 'MainRoute';
 
-  static const _i2.PageInfo<void> page = _i2.PageInfo<void>(name);
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }
