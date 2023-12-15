@@ -2,21 +2,21 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class BagScreen extends StatefulWidget {
-  const BagScreen({super.key});
+class HistoryScreen extends StatefulWidget {
+  const HistoryScreen({super.key});
 
   @override
-  State<BagScreen> createState() => _BagScreenState();
+  State<HistoryScreen> createState() => _HistoryScreenState();
 }
 
-class _BagScreenState extends State<BagScreen> {
+class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("TEXT"),
       ),
-      body: const Center(
+      body: Center(
         child: Text("TEXT"),
       ),
     );

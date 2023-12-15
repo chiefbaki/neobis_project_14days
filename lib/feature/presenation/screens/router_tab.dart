@@ -15,9 +15,11 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
-      routes: [
+      routes: const [
         MainRoute(),
         BagRoute(),
+        HistoryRoute(),
+        InfoRoute(),
       ],
       transitionBuilder: (context, child, animation) => FadeTransition(
         opacity: animation,
@@ -28,6 +30,10 @@ class _DashboardPageState extends State<DashboardPage> {
         return Scaffold(
             body: child,
             bottomNavigationBar: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              unselectedLabelStyle: const TextStyle(
+                color: Colors.black,
+              ),
               selectedLabelStyle: const TextStyle(
                 color: AppColors.selectedTabItemColor,
               ),
@@ -37,7 +43,6 @@ class _DashboardPageState extends State<DashboardPage> {
                   const IconThemeData(color: AppColors.unselectedTabItemColor),
               currentIndex: tabsRouter.activeIndex,
               onTap: (index) {
-                // here we switch between tabs
                 tabsRouter.setActiveIndex(index);
               },
               items: [
@@ -45,6 +50,10 @@ class _DashboardPageState extends State<DashboardPage> {
                     label: 'Главное', icon: SvgPicture.asset(Images.home)),
                 BottomNavigationBarItem(
                     label: 'Корзина', icon: SvgPicture.asset(Images.bag)),
+                BottomNavigationBarItem(
+                    label: 'История', icon: SvgPicture.asset(Images.clock)),
+                BottomNavigationBarItem(
+                    label: 'Инфо', icon: SvgPicture.asset(Images.helpSquare)),
               ],
             )); 
       },

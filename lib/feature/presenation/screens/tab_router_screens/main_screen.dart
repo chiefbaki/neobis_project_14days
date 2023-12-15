@@ -31,11 +31,11 @@ class _MainScreenState extends State<MainScreen> {
           future: GetProductRepo().getProductCategory(),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: const CircularProgressIndicator.adaptive());
+              return const Center(child: CircularProgressIndicator.adaptive());
             } else if (snapshot.hasError) {
               return Text('Error: ${snapshot.error}');
             } else {
-              return Padding(
+              return const Padding(
                 padding: EdgeInsets.all(16),
                 child: Center(
                   child: Column(

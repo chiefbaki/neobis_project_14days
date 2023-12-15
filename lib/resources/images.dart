@@ -11,6 +11,6 @@ class Images {
   static const String categorycard6 = 'assets/img/categorycard6.png';
   static const String bag = 'assets/img/bag.svg';
   static const String clock = 'assets/img/clock.svg';
-  static const String helpSquare = 'assets/img/help-sqaure.svg';
+  static const String helpSquare = 'assets/img/help-square.svg';
   static const String home = 'assets/img/home.svg';
 }

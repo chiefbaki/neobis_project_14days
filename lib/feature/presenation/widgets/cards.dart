@@ -33,7 +33,7 @@ class Cards extends StatelessWidget {
               end: Alignment.bottomCenter,
               colors: [
                 Colors.transparent,
-                Color(0xff000000).withOpacity(0.2),
+                Color(0xff000000).withOpacity(0.3),
                 Colors.black,
               ]),
           borderRadius: BorderRadius.circular(16),

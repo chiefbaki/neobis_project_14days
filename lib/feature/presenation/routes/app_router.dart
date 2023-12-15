@@ -8,6 +8,8 @@ class AppRouter extends $AppRouter {
         AutoRoute(page: DashboardRoute.page, initial: true, children: [
           AutoRoute(page: MainRoute.page, initial: true),
           AutoRoute(page: BagRoute.page),
+          AutoRoute(page: HistoryRoute.page),
+          AutoRoute(page: InfoRoute.page)
         ]),
       ];
 }
