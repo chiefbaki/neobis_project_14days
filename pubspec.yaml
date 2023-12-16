@@ -42,6 +42,7 @@ dependencies:
   auto_route_generator: ^7.3.2
   flutter_screenutil: ^5.9.0
   svg_flutter: ^0.0.1
+  url_launcher: ^6.2.2
 
 dev_dependencies:
   flutter_test:

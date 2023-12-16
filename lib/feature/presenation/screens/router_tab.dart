@@ -7,11 +7,15 @@ import 'package:svg_flutter/svg.dart';
 
 @RoutePage()
 class DashboardPage extends StatefulWidget {
+  const DashboardPage({super.key});
+
   @override
   State<DashboardPage> createState() => _DashboardPageState();
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  bool isSelected = false;
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
@@ -31,32 +35,73 @@ class _DashboardPageState extends State<DashboardPage> {
             body: child,
             bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
-              unselectedLabelStyle: const TextStyle(
-                color: Colors.black,
-              ),
-              selectedLabelStyle: const TextStyle(
-                color: AppColors.selectedTabItemColor,
-              ),
-              selectedIconTheme:
-                  const IconThemeData(color: AppColors.selectedTabItemColor),
-              unselectedIconTheme:
-                  const IconThemeData(color: AppColors.unselectedTabItemColor),
-              currentIndex: tabsRouter.activeIndex,
+              unselectedItemColor: AppColors.unselectedTabItemColor,
+              selectedItemColor: AppColors.selectedTabItemColor,
+              currentIndex: _currentIndex,
               onTap: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
                 tabsRouter.setActiveIndex(index);
               },
               items: [
                 BottomNavigationBarItem(
-                    label: 'Главное', icon: SvgPicture.asset(Images.home)),
+                    label: 'Главное',
+                    icon: SvgPicture.asset(
+                      Images.home,
+                      colorFilter: _currentIndex == 0
+                          ? const ColorFilter.mode(
+                              AppColors.selectedTabItemColor, BlendMode.srcIn)
+                          : const ColorFilter.mode(
+                              AppColors.unselectedTabItemColor,
+                              BlendMode.srcIn),
+                    )),
                 BottomNavigationBarItem(
-                    label: 'Корзина', icon: SvgPicture.asset(Images.bag)),
+                  label: 'Корзина',
+                  icon: SvgPicture.asset(
+                    Images.bag,
+                    colorFilter: _currentIndex == 1
+                        ? const ColorFilter.mode(
+                            AppColors.selectedTabItemColor, BlendMode.srcIn)
+                        : const ColorFilter.mode(
+                            AppColors.unselectedTabItemColor, BlendMode.srcIn),
+                  ),
+                ),
                 BottomNavigationBarItem(
-                    label: 'История', icon: SvgPicture.asset(Images.clock)),
+                    label: 'История',
+                    icon: SvgPicture.asset(
+                      Images.clock,
+                      colorFilter: _currentIndex == 2
+                          ? const ColorFilter.mode(
+                              AppColors.selectedTabItemColor, BlendMode.srcIn)
+                          : const ColorFilter.mode(
+                              AppColors.unselectedTabItemColor,
+                              BlendMode.srcIn),
+                    )),
                 BottomNavigationBarItem(
-                    label: 'Инфо', icon: SvgPicture.asset(Images.helpSquare)),
+                    label: 'Инфо',
+                    icon: SvgPicture.asset(
+                      Images.helpSquare,
+                      colorFilter: _currentIndex == 3
+                          ? const ColorFilter.mode(
+                              AppColors.selectedTabItemColor, BlendMode.srcIn)
+                          : const ColorFilter.mode(
+                              AppColors.unselectedTabItemColor,
+                              BlendMode.srcIn),
+                    )),
               ],
-            )); 
+            ));
       },
     );
+  }
+
+  bool isSelectedIcon(bool isSelected) {
+    isSelected
+        ? const ColorFilter.mode(
+            AppColors.selectedTabItemColor, BlendMode.srcIn)
+        : const ColorFilter.mode(
+            AppColors.unselectedTabItemColor, BlendMode.srcIn);
+
+    return isSelected;
   }
 }

@@ -3,9 +3,7 @@ import 'package:eco_market/data/network/product_category_api.dart';
 import 'package:eco_market/feature/presenation/theme/app_colors.dart';
 import 'package:eco_market/feature/presenation/theme/app_fonts.dart';
 import 'package:eco_market/feature/presenation/widgets/card_items.dart';
-import 'package:eco_market/resources/resources.dart';
 import 'package:flutter/material.dart';
-import 'package:svg_flutter/svg.dart';
 
 @RoutePage()
 class MainScreen extends StatefulWidget {
@@ -16,8 +14,6 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
