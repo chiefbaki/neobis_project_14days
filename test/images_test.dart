@@ -5,11 +5,14 @@ import 'package:eco_market/resources/resources.dart';
 
 void main() {
   test('images assets test', () {
-    expect(File(Images.categorycard1).existsSync(), isTrue);
-    expect(File(Images.categorycard2).existsSync(), isTrue);
-    expect(File(Images.categorycard3).existsSync(), isTrue);
-    expect(File(Images.categorycard4).existsSync(), isTrue);
-    expect(File(Images.categorycard5).existsSync(), isTrue);
-    expect(File(Images.categorycard6).existsSync(), isTrue);
+    expect(File(Images.bag).existsSync(), isTrue);
+    expect(File(Images.clock).existsSync(), isTrue);
+    expect(File(Images.helpSquare).existsSync(), isTrue);
+    expect(File(Images.home03).existsSync(), isTrue);
+    expect(File(Images.home).existsSync(), isTrue);
+    expect(File(Images.infoImage).existsSync(), isTrue);
+    expect(File(Images.instagram).existsSync(), isTrue);
+    expect(File(Images.phone).existsSync(), isTrue);
+    expect(File(Images.whatsapp).existsSync(), isTrue);
   });
 }
