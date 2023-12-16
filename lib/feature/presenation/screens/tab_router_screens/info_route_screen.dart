@@ -5,7 +5,8 @@ import 'package:eco_market/feature/presenation/widgets/info_btn.dart';
 import 'package:eco_market/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:svg_flutter/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 @RoutePage()
 class InfoScreen extends StatefulWidget {
@@ -63,7 +64,9 @@ class _InfoScreenState extends State<InfoScreen> {
                       InfoBtn(
                         btnText: "Позвонить",
                         icon: Images.phone,
-                        onPressed: () {},
+                        onPressed: () {
+                          makeCall();
+                        },
                       ),
                       SizedBox(
                         height: 12.h,
@@ -88,5 +91,13 @@ class _InfoScreenState extends State<InfoScreen> {
         ],
       ),
     );
+  }
+  Future<void> makeCall() async{
+    final phoneNumber = Uri.parse("tel: +996501594444");
+    if(await canLaunchUrl(phoneNumber)){
+      await launchUrl(phoneNumber);
+    }else{
+      debugPrint("Couldn't launch $phoneNumber");
+    }
   }
 }
