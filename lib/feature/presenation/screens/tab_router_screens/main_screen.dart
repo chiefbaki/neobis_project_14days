@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:eco_market/data/network/product_category_api.dart';
+import 'package:eco_market/feature/presenation/routes/app_router.gr.dart';
+import 'package:eco_market/feature/presenation/screens/tab_router_screens/products_screeen.dart';
 import 'package:eco_market/feature/presenation/theme/app_colors.dart';
 import 'package:eco_market/feature/presenation/theme/app_fonts.dart';
 import 'package:eco_market/feature/presenation/widgets/card_items.dart';
@@ -24,26 +26,27 @@ class _MainScreenState extends State<MainScreen> {
         ),
       ),
       body: FutureBuilder(
-          future: GetProductRepo().getProductCategory(),
-          builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator.adaptive());
-            } else if (snapshot.hasError) {
-              return Text('Error: ${snapshot.error}');
-            } else {
-              return const Padding(
-                padding: EdgeInsets.all(16),
-                child: Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      CardItems()
-                    ],
-                  ),
+        future: GetProductRepo().getProductCategory(),
+        builder: (context, AsyncSnapshot snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator.adaptive());
+          } else if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          } else {
+            return const Padding(
+              padding: EdgeInsets.all(16),
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CardItems(),
+                  ],
                 ),
-              );
-            }
-          }),
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }

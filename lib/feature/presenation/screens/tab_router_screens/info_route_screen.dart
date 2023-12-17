@@ -65,7 +65,6 @@ class _InfoScreenState extends State<InfoScreen> {
                         btnText: "Позвонить",
                         icon: Images.phone,
                         onPressed: () {
-                          makeCall();
                         },
                       ),
                       SizedBox(

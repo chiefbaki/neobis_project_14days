@@ -25,7 +25,7 @@ class GetProductRepo {
         throw DioException(
             requestOptions: RequestOptions(),
             response: response,
-            error: "Не удалось загрузить категории продуктов");
+            error: "Не удалось загрузить категорию продуктов");
       }
     } catch (e) {
       debugPrint(e.toString());
