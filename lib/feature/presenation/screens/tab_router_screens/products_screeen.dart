@@ -67,11 +67,11 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                     child: ChoiceChip(
-                      side: BorderSide(color: AppColors.grey),
+                      side: const BorderSide(color: AppColors.grey),
                       backgroundColor: Colors.white,
                       selectedColor: AppColors.selectedTabItemColor,
                       label: Text(products[index]),
-                      labelStyle: AppFonts.s16w400.copyWith(color: AppColors.grey),
+                      labelStyle: AppFonts.s16w400.copyWith(color: AppColors.scaffoldBgColor),
                       selected: selectedIndex == index,
                       onSelected: (val) {
                         selectedIndex = index;

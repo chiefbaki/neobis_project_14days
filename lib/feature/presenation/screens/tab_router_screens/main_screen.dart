@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:eco_market/data/network/product_category_api.dart';
-import 'package:eco_market/feature/presenation/routes/app_router.gr.dart';
-import 'package:eco_market/feature/presenation/screens/tab_router_screens/products_screeen.dart';
 import 'package:eco_market/feature/presenation/theme/app_colors.dart';
 import 'package:eco_market/feature/presenation/theme/app_fonts.dart';
 import 'package:eco_market/feature/presenation/widgets/card_items.dart';
