@@ -1,6 +1,5 @@
 import 'package:eco_market/data/network/product_category_api.dart';
 import 'package:eco_market/feature/presenation/widgets/cards.dart';
-import 'package:eco_market/resources/resources.dart';
 import 'package:flutter/material.dart';
 
 class CardItems extends StatelessWidget {

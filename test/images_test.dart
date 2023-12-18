@@ -6,6 +6,7 @@ import 'package:eco_market/resources/resources.dart';
 void main() {
   test('images assets test', () {
     expect(File(Images.icon).existsSync(), isTrue);
+    expect(File(Images.apple).existsSync(), isTrue);
     expect(File(Images.bag).existsSync(), isTrue);
     expect(File(Images.chevronLeft).existsSync(), isTrue);
     expect(File(Images.clock).existsSync(), isTrue);

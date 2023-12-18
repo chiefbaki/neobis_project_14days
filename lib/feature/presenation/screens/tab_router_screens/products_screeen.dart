@@ -3,6 +3,7 @@ import 'package:eco_market/feature/presenation/theme/app_colors.dart';
 import 'package:eco_market/feature/presenation/theme/app_fonts.dart';
 import 'package:eco_market/resources/resources.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
 
 @RoutePage()
@@ -14,7 +15,15 @@ class ProductsScreen extends StatefulWidget {
 }
 
 class _ProductsScreenState extends State<ProductsScreen> {
-  List<String> products = ["Все", "Фрукты", "Сухофрукты", "Овощи", "Зелень", "Чай кофе"];
+  List<String> products = [
+    "Все",
+    "Фрукты",
+    "Сухофрукты",
+    "Овощи",
+    "Зелень",
+    "Чай кофе"
+  ];
+  bool isSelected = true;
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -44,8 +53,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
                       color: Color(0xffD2D1D5),
                     ),
                     hintText: "Быстрый поиск",
-                    hintStyle:
-                        AppFonts.s16w400.copyWith(color: const Color(0xffD2D1D5)),
+                    hintStyle: AppFonts.s16w400
+                        .copyWith(color: const Color(0xffD2D1D5)),
                     filled: true,
                     fillColor: AppColors.lightGrey,
                     enabledBorder: OutlineInputBorder(
@@ -56,31 +65,100 @@ class _ProductsScreenState extends State<ProductsScreen> {
                         borderRadius: BorderRadius.circular(16),
                         borderSide:
                             const BorderSide(color: AppColors.lightGrey))),
-              ), 
-                 SizedBox(
-            height: MediaQuery.of(context).size.height * 0.1,
-            child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: products.length,
-                itemBuilder: ((context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                    child: ChoiceChip(
-                      side: const BorderSide(color: AppColors.grey),
-                      backgroundColor: Colors.white,
-                      selectedColor: AppColors.selectedTabItemColor,
-                      label: Text(products[index]),
-                      labelStyle: AppFonts.s16w400.copyWith(color: AppColors.scaffoldBgColor),
-                      selected: selectedIndex == index,
-                      onSelected: (val) {
-                        selectedIndex = index;
-                        setState(() {});
-                      },
-                    ),
-                  );
-                })),
-          ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: products.length,
+                    itemBuilder: ((context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 16, horizontal: 8),
+                        child: ChoiceChip(
+                          side: const BorderSide(color: AppColors.grey),
+                          backgroundColor: Colors.white,
+                          selectedColor: AppColors.selectedTabItemColor,
+                          label: Text(
+                            products[index],
+                            style: AppFonts.s16w600
+                                .copyWith(color: AppColors.grey),
+                          ),
+                          labelStyle:
+                              AppFonts.s16w600.copyWith(color: Colors.white),
+                          selected: selectedIndex == index,
+                          onSelected: (val) {
+                            selectedIndex = index;
+                            setState(() {});
+                          },
+                        ),
+                      );
+                    })),
+              ),
+              Container(
+                width: 166.w,
+                height: 228.h,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: AppColors.lightGrey),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(Images.apple),
+                      SizedBox(
+                        height: 4.h,
+                      ),
+                      const Text(
+                        "Яблоко красная радуга сладкая",
+                        style: AppFonts.s14w500,
+                      ),
+                      SizedBox(
+                        height: 24.h,
+                      ),
+                      Text(
+                        "56 s",
+                        style: AppFonts.s20w700
+                            .copyWith(color: AppColors.selectedTabItemColor),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      SizedBox(
+                          width: 158.w,
+                          height: 32.h,
+                          child: ElevatedButton(
+                            onPressed: isSelected ? () {
+                              setState(() {
+                                
+                              });
+                              setState(() {
+                                Row(
+                                  children: [
+                                    ElevatedButton(onPressed: (){}, style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(50)
+                                      )
+                                    ) , child: Text("-"))
+                                  ],
+                                );
+                              },);
+                            } : null,
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.selectedTabItemColor,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16))),
+                            child: const Text(
+                              "Добавить",
+                              style: AppFonts.s16w600,
+                            ),
+                          ))
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ));

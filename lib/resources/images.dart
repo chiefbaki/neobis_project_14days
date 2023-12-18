@@ -4,6 +4,7 @@ class Images {
   Images._();
 
   static const String icon = 'assets/img/Icon.svg';
+  static const String apple = 'assets/img/apple.png';
   static const String bag = 'assets/img/bag.svg';
   static const String chevronLeft = 'assets/img/chevron-left.svg';
   static const String clock = 'assets/img/clock.svg';

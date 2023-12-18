@@ -14,6 +14,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routerConfig: AppRouter().config(),
         theme: ThemeData(
+          chipTheme: const ChipThemeData(
+            disabledColor: AppColors.grey,
+            selectedColor: AppColors.selectedTabItemColor
+          ),
             scaffoldBackgroundColor: AppColors.scaffoldBgColor,
             appBarTheme: const AppBarTheme(
                 color: AppColors.scaffoldBgColor, elevation: 0)),

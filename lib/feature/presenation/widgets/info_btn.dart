@@ -1,6 +1,5 @@
 import 'package:eco_market/feature/presenation/theme/app_colors.dart';
 import 'package:eco_market/feature/presenation/theme/app_fonts.dart';
-import 'package:eco_market/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
