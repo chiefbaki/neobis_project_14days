@@ -126,35 +126,61 @@ class _ProductsScreenState extends State<ProductsScreen> {
                       SizedBox(
                         height: 10.h,
                       ),
-                      SizedBox(
-                          width: 158.w,
-                          height: 32.h,
-                          child: ElevatedButton(
-                            onPressed: isSelected ? () {
-                              setState(() {
-                                
-                              });
-                              setState(() {
-                                Row(
-                                  children: [
-                                    ElevatedButton(onPressed: (){}, style: ElevatedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(50)
-                                      )
-                                    ) , child: Text("-"))
-                                  ],
-                                );
-                              },);
-                            } : null,
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.selectedTabItemColor,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16))),
-                            child: const Text(
-                              "Добавить",
-                              style: AppFonts.s16w600,
-                            ),
-                          ))
+                      isSelected
+                          ? SizedBox(
+                              width: 158.w,
+                              height: 32.h,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    isSelected = !isSelected;
+                                  });
+                                  Row(
+                                    children: [
+                                      ElevatedButton(
+                                          onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          50))),
+                                          child: Text("-"))
+                                    ],
+                                  );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        AppColors.selectedTabItemColor,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(16))),
+                                child: const Text(
+                                  "Добавить",
+                                  style: AppFonts.s16w600,
+                                ),
+                              ))
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
+                                  onTap: () {},
+                                  child: const CircleAvatar(
+                                    backgroundColor:
+                                        AppColors.selectedTabItemColor,
+                                    child: Icon(Icons.remove, color: AppColors.scaffoldBgColor,),
+                                  ),
+                                ),
+                                Text("1"),
+                                InkWell(
+                                  onTap: () {},
+                                  child: CircleAvatar(
+                                    backgroundColor:
+                                        AppColors.selectedTabItemColor,
+                                    child: Icon(Icons.add, color: AppColors.scaffoldBgColor,),
+                                  ),
+                                )
+                              ],
+                            )
                     ],
                   ),
                 ),
