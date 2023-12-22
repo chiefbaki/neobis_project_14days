@@ -5,13 +5,11 @@ import 'package:eco_market/feature/presenation/routes/app_router.gr.dart';
 class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
-    AutoRoute(
-              page: ProductsRoute.page, initial: true
-            ),
-        AutoRoute(page: DashboardRoute.page, children: [
+
+        AutoRoute(page: DashboardRoute.page,initial: true,  children: [
           
           AutoRoute(page: MainRoute.page,  children: [
-            
+            AutoRoute(page: ProductsRoute.page)
           ]),
           AutoRoute(page: BagRoute.page),
           AutoRoute(page: HistoryRoute.page),

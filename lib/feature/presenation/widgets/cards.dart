@@ -7,17 +7,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Cards extends StatelessWidget {
   final String img;
   final String text;
-  const Cards({super.key, required this.img, required this.text});
+  final Function() onPressed;
+  const Cards({super.key, required this.img, required this.text, required this.onPressed,});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
-        onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ProductsScreen()));
-        },
+        onTap: onPressed,
         child: Container(
           width: 166.w,
           height: 182.h,

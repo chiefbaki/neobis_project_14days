@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:eco_market/core/dio_settings.dart';
-import 'package:eco_market/data/model/product_category_settings.dart';
 import 'package:flutter/material.dart';
+
 
 class GetProductRepo {
   Future<List<ProductCategoryMotelItem>> getProductCategory() async {
@@ -28,7 +28,11 @@ class GetProductRepo {
             error: "Не удалось загрузить категорию продуктов");
       }
     } catch (e) {
-      debugPrint(e.toString());
+      if(e.toString() is DioException){
+        AlertDialog.adaptive(
+          title: Text("Error"),
+        );
+      }
       throw e;
     }
   }

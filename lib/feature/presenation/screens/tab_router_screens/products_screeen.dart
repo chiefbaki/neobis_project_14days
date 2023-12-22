@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:eco_market/data/network/product_category_api.dart';
 import 'package:eco_market/feature/presenation/theme/app_colors.dart';
 import 'package:eco_market/feature/presenation/theme/app_fonts.dart';
 import 'package:eco_market/resources/resources.dart';
@@ -8,21 +9,16 @@ import 'package:svg_flutter/svg.dart';
 
 @RoutePage()
 class ProductsScreen extends StatefulWidget {
-  const ProductsScreen({super.key});
+  const ProductsScreen({super.key,required this.data,});
+
+  final List<ProductCategoryMotelItem> data;
 
   @override
   State<ProductsScreen> createState() => _ProductsScreenState();
 }
 
 class _ProductsScreenState extends State<ProductsScreen> {
-  List<String> products = [
-    "Все",
-    "Фрукты",
-    "Сухофрукты",
-    "Овощи",
-    "Зелень",
-    "Чай кофе"
-  ];
+
   bool isSelected = true;
   int selectedIndex = 0;
   @override
@@ -71,7 +67,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
-                    itemCount: products.length,
+                    itemCount: widget.data.map((e) => e.name).toList().length,
                     itemBuilder: ((context, index) {
                       return Padding(
                         padding: const EdgeInsets.symmetric(
@@ -81,7 +77,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                           backgroundColor: Colors.white,
                           selectedColor: AppColors.selectedTabItemColor,
                           label: Text(
-                            products[index],
+                            widget.data.map((e) => e.name).toList()[index],
                             style: AppFonts.s16w600
                                 .copyWith(color: AppColors.grey),
                           ),

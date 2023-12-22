@@ -1,4 +1,5 @@
 import 'package:eco_market/data/network/product_category_api.dart';
+import 'package:eco_market/feature/presenation/screens/tab_router_screens/products_screeen.dart';
 import 'package:eco_market/feature/presenation/widgets/cards.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,20 @@ class CardItems extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
       ),
-      itemBuilder: (context, index) => Cards(img: items[index].image, text: items[index].name,),
+      itemBuilder: (context, index) => Cards(
+        img: items[index].image,
+        text: items[index].name,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductsScreen(
+                data: items,
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
